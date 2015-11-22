@@ -86,7 +86,7 @@
                .data(dataset)
                .transition()
                .delay(function(d, i){
-                 return d * 100
+                 return i / dataset.length * 1000 // dynamic delay
                })
                .duration(1500)
                .ease("linear") // linear, circle, elastic, bounce are possible values(cubic-in-out is default)
@@ -104,7 +104,7 @@
                .data(dataset)
                .transition()
                .delay(function(d, i){
-                 return d * 100
+                 return i / dataset.length * 1000
                })
                .duration(1500)
                .ease("linear")
