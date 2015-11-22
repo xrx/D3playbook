@@ -46,7 +46,7 @@
              .attr("y", function(d) {
                 return h - yScale(d);
              })
-             .attr("width", xScale.rangeBand())
+             .attr("width", xScale.rangeBand()) // Setting the with with padding included
              .attr("height", function(d) {
                 return yScale(d);
              })
@@ -84,18 +84,24 @@
             //Update all rects
             svg.selectAll("rect")
                .data(dataset)
+               .transition()
+               .duration(1500)
+               .ease("linear") // linear, circle, elastic, bounce are possible values(cubic-in-out is default)
                .attr("y", function(d) {
                     return h - yScale(d);
                })
                .attr("height", function(d) {
                     return yScale(d);
                })
-               .attr("fill", function(d) {   // <-- Down here!
+               .attr("fill", function(d) {
                  return "rgb(0, 0, " + (d * 10) + ")";
                });
 
             svg.selectAll("text")
                .data(dataset)
+               .transition()
+               .duration(1500)
+               .ease("linear")
                .text(function(d) {
                     return d;
                })
